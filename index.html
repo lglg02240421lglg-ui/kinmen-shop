@@ -56,6 +56,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
     }
     .nav-tools {
       display: flex;
@@ -153,6 +154,7 @@
       padding: 8px 10px;
       border-radius: 4px;
       transition: 0.2s;
+      cursor: pointer;
     }
     .side-menu ul li a:hover {
       background-color: var(--brick-red);
@@ -163,7 +165,7 @@
     .hero-banner {
       background: #4a6b82; 
       background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1621941614214-36bc16386561?auto=format&fit=crop&w=1200&q=80') center/cover;
-      height: 350px;
+      height: 380px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -173,7 +175,24 @@
       padding: 20px;
     }
     .hero-banner h1 { font-size: 2.6rem; margin-bottom: 12px; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); letter-spacing: 3px; }
-    .hero-banner p { font-size: 1.15rem; letter-spacing: 2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); max-width: 600px; }
+    .hero-banner p { font-size: 1.15rem; letter-spacing: 2px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); max-width: 600px; margin-bottom: 20px; }
+    
+    .hero-shop-btn {
+      background-color: var(--brick-red);
+      color: white;
+      border: none;
+      padding: 12px 35px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(184, 77, 55, 0.4);
+      transition: all 0.2s;
+    }
+    .hero-shop-btn:hover {
+      background-color: #a33f2a;
+      transform: scale(1.05);
+    }
 
     /* 主要版面 */
     .main-content {
@@ -182,10 +201,20 @@
       padding: 0 20px;
     }
 
-    .shop-section {
+    /* 控制頁面切換 */
+    .page-section {
+      display: none;
       margin-bottom: 60px;
-      scroll-margin-top: 140px;
+      animation: fadeIn 0.3s ease-in-out;
     }
+    .page-section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .section-title {
       font-size: 1.7rem;
       color: var(--dark-wood);
@@ -432,6 +461,9 @@
     .checkout-input {
       width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; font-family: inherit;
     }
+    .checkout-textarea {
+      width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; font-family: inherit; resize: none; height: 65px;
+    }
 
     .cart-total {
       display: flex;
@@ -486,12 +518,12 @@
     <button class="side-menu-close" id="closeMenu"><i class="fas fa-times"></i></button>
     <h3>金門名店快速跳轉</h3>
     <ul>
-      <li><a href="#featured-section">🔥 本季搶手明星商品</a></li>
-      <li><a href="#ming-ji">🍶 名記貢糖專區</a></li>
-      <li><a href="#ma-jia">🍜 馬家麵線專區</a></li>
-      <li><a href="#cun-de">🌿 存德中藥行專區</a></li>
-      <li><a href="#jin-rui-cheng">🥮 金瑞成貢糖專區</a></li>
-      <li><a href="#joan">🥩 喬安牧場肉乾專區</a></li>
+      <li><a onclick="switchPage('home-page')">🏠 返回選物主頁</a></li>
+      <li><a onclick="switchPage('ming-ji')">🍶 名記貢糖專區</a></li>
+      <li><a onclick="switchPage('ma-jia')">🍜 馬家麵線專區</a></li>
+      <li><a onclick="switchPage('cun-de')">🌿 存德中藥行專區</a></li>
+      <li><a onclick="switchPage('jin-rui-cheng')">🥮 金瑞成貢糖專區</a></li>
+      <li><a onclick="switchPage('joan')">🥩 喬安牧場肉乾專區</a></li>
     </ul>
   </nav>
 
@@ -536,6 +568,12 @@
           <input type="text" name="轉帳末五碼" id="cardNumInput" class="checkout-input" maxlength="5" placeholder="例如：12345">
         </div>
 
+        <!-- 商品備註與許願池輸入欄位 -->
+        <div class="checkout-form-group">
+          <label style="color: var(--ocean-blue);"><i class="fas fa-magic"></i> 訂單備註 / 商品許願池：</label>
+          <textarea name="親友許願與備註" class="checkout-textarea" placeholder="有什麼想順便帶的其他金門名產（例：高粱酒），可以在這裡敲碗喔！"></textarea>
+        </div>
+
         <div class="cart-total">
           <span>預計總金額：</span>
           <span id="cartTotalText">NT$ 0</span>
@@ -550,7 +588,7 @@
   <header>
     <div class="nav-container">
       <button class="menu-btn" id="openMenu"><i class="fas fa-bars"></i> 分類</button>
-      <a href="#" class="logo"><i class="fas fa-gopuram"></i> 浯島海風｜金門伴手採集選物</a>
+      <a onclick="switchPage('home-page')" class="logo"><i class="fas fa-gopuram"></i> 浯島海風｜金門伴手採集選物</a>
       <div class="nav-tools">
         <button class="cart-trigger" id="openCart">
           <i class="fas fa-shopping-basket"></i>
@@ -572,6 +610,7 @@
   <section class="hero-banner">
     <h1>浯島海風・伴手採集</h1>
     <p>引一縷戰地陽光，將百年老鋪的古老滋味捎送至您手中</p>
+    <button class="hero-shop-btn" onclick="startShoppingAction()">🔥 現在開始購物</button>
   </section>
 
   <main class="main-content">
@@ -580,46 +619,44 @@
     <div class="global-notice-box">
       <i class="fas fa-exclamation-circle" style="margin-right: 5px;"></i> 
       <strong>【現場採購注意事項】</strong><br>
-      本站商品均為收到訂單後前往現場採購。因金門老鋪維持傳統產量有限，<strong>不論是中藥行香料、貢糖、手工麵線或肉乾，若採購現場遇當日提早售罄或缺貨，我們均會在出貨前第一時間與您聯絡</strong>，辦理口味更換或取消該品項退款，感謝您的體諒。
+      本站商品均為收到訂單後前往現場採購。因金門老鋪維持傳統產量有限，<strong>若採購現場遇當日提早售罄或缺貨，我們均會在出貨前第一時間與您聯絡</strong>，辦理口味更換或取消該品項退款，感謝您的體諒。
     </div>
 
-    <!-- 0. HOME 明星商品區 -->
-    <section class="shop-section" id="featured-section">
-      <h2 class="section-title" style="border-left-color: var(--sand-gold);"><i class="fas fa-fire" style="color: var(--brick-red); margin-right: 8px;"></i> 熱門必帶・明星伴手推薦</h2>
+    <!-- ==================== 0. 選物主頁 ==================== -->
+    <div id="home-page" class="page-section active">
+      <h2 class="section-title" style="border-left-color: var(--sand-gold);"><i class="fas fa-fire" style="color: var(--brick-red); margin-right: 8px;"></i> 本季強手・明星產品推薦</h2>
       <div class="product-grid" id="featured-grid"></div>
-    </section>
+    </div>
 
-    <hr style="border: none; border-top: 1px dashed #e3d9c3; margin: 50px 0;">
-
-    <!-- 1. 名記貢糖專區 -->
-    <section class="shop-section" id="ming-ji">
+    <!-- ==================== 1. 名記貢糖專區 ==================== -->
+    <div id="ming-ji" class="page-section">
       <h2 class="section-title">🍶 名記貢糖專區 <span style="font-size: 1rem; color: var(--brick-red); font-weight: normal; margin-left: 10px;">每包均一價 NT$ 195</span></h2>
       <div class="product-grid" id="mingji-grid"></div>
-    </section>
+    </div>
 
-    <!-- 2. 馬家麵線專區 -->
-    <section class="shop-section" id="ma-jia">
+    <!-- ==================== 2. 馬家麵線專區（已補齊 class 防止外流首頁） ==================== -->
+    <div id="ma-jia" class="page-section">
       <h2 class="section-title">🍜 馬家麵線專區</h2>
       <div class="product-grid" id="majia-grid"></div>
-    </section>
+    </div>
 
-    <!-- 3. 存德中藥行專區 -->
-    <section class="shop-section" id="cun-de">
-      <h2 class="section-title">🌿 存德中藥行專區</h2>
+    <!-- ==================== 3. 存德中藥行專區 ==================== -->
+    <div id="cun-de" class="page-section">
+      <h2 class="section-title">🌿 存德中藥行專區 (現場研磨手包)</h2>
       <div class="product-grid" id="cunde-grid"></div>
-    </section>
+    </div>
 
-    <!-- 4. 金瑞成貢糖專區 -->
-    <section class="shop-section" id="jin-rui-cheng">
+    <!-- ==================== 4. 金瑞成貢糖專區 ==================== -->
+    <div id="jin-rui-cheng" class="page-section">
       <h2 class="section-title">🥮 金瑞成貢糖專區</h2>
       <div class="product-grid" id="jinruicheng-grid"></div>
-    </section>
+    </div>
 
-    <!-- 5. 喬安牧場肉乾專區 -->
-    <section class="shop-section" id="joan">
+    <!-- ==================== 5. 喬安牧場肉乾專區 ==================== -->
+    <div id="joan" class="page-section">
       <h2 class="section-title">🥩 喬安牧場肉乾專區</h2>
       <div class="product-grid" id="joan-grid"></div>
-    </section>
+    </div>
 
   </main>
 
@@ -630,36 +667,57 @@
   <script>
     let cart = [];
 
+    // --- 分頁切換核心邏輯 ---
+    function switchPage(pageId) {
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      
+      const targetSec = document.getElementById(pageId);
+      if(targetSec) {
+        targetSec.classList.add('active');
+        window.scrollTo({ top: 380, behavior: 'smooth' });
+      }
+    }
+
+    function startShoppingAction() {
+      switchPage('ming-ji');
+      const sideMenu = document.getElementById('sideMenu');
+      const overlay = document.getElementById('overlay');
+      if(sideMenu && overlay) {
+        sideMenu.classList.add('active');
+        overlay.classList.add('active');
+      }
+    }
+
     function imgError(img) {
       img.onerror = null;
       img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" style="background:%23eee;"><text x="50%25" y="50%25" font-size="12" text-anchor="middle" alignment-baseline="middle" fill="%23999">📷 圖片代載中</text></svg>';
     }
 
-    // --- 馬家麵線圖片網址完全不動，純文字口味對調連動機制 ---
+    // --- 馬家麵線資料庫 ---
     const majiaImages = [
       { flavor: '原味', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_747e16b18ce335e0ba73ae9a08156aab.jpg' },    
       { flavor: '高粱', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_298178abffe71f9b5bda10c335d4c4df.jpg' },    
-      { flavor: '山藥', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_59f016e4ac4adeef935cd4ce25a3f5c7.jpg' },    // 文字對調連動：原第3張南瓜圖改配山藥文字
+      { flavor: '山藥', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_59f016e4ac4adeef935cd4ce25a3f5c7.jpg' },    
       { flavor: '番茄', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_6962a2ac12115d5d9ff17ff9dd88b29e.jpg' },    
       { flavor: '蔬菜', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_2f17bb61cf13c46613aaa07e1811e0df.jpg' },    
-      { flavor: '紫地瓜', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_661290709e524a3641f5b99fed6a07cd.jpg' },   // 文字對調連動：原第6張山藥圖改配地瓜文字
-      { flavor: '南瓜', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_8884a2e12daa4785229770d8429b4b3c.jpg' },  // 文字對調連動：原第7張地瓜圖改配南瓜文字
+      { flavor: '紫地瓜', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_661290709e524a3641f5b99fed6a07cd.jpg' },   
+      { flavor: '南瓜', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_8884a2e12daa4785229770d8429b4b3c.jpg' },  
       { flavor: '中麵', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_dbaed59a59df42901c1966da3731d7a1.jpg' },    
       { flavor: '寬麵', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_dbaed59a59df42901c1966da3731d7a1.jpg' }     
     ];
 
     const mingjiProducts = [
-      { id: 'M1', name: '【名記】綜合口味貢糖包', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image8_thumb_600_671.jpg', desc: '🎁 熱門特製綜合包！一包內含 5～6 種傳統經典口味，滿足您對金門傳統手作甜點的所有渴望。（※若遇口味現場缺貨，將以其他等值美味補上）' },
-      { id: 'M2', name: '【名記】竹葉原味貢糖', price: 195, spec: '400g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image1_thumb_600_638.jpg', desc: '🍃 傳統口味貢糖 de 代表作，帶有淡淡竹葉清香，絕對是最暢銷的必帶口味之一。' },
+      { id: 'M1', name: '【名記】綜合口味貢糖包', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image8_thumb_600_671.jpg', desc: '🎁 熱門特製綜合包！一包內含 5～6 種傳統經典口味，滿足您對金門傳統手作甜點的所有渴望。' },
+      { id: 'M2', name: '【名記】竹葉原味貢糖', price: 195, spec: '400g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image1_thumb_600_638.jpg', desc: '🍃 傳統口味貢糖的代表作，帶有淡淡竹葉清香，絕對是最暢銷的必帶口味之一。' },
       { id: 'M4', name: '【名記】素食豬腳貢糖', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image4_thumb_600_624.jpg', desc: '🐷 因外形酷似豬腳而聞名。外皮Q彈有嚼勁，內餡花生香濃，層次感豐富，全素食者也可安心食用！' },
-      { id: 'M5', name: '【名記】黑金剛芝麻貢糖', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image2_thumb_600_604.jpg', desc: '🖤 嚴選飽融黑芝麻與特製花生揉合，濃郁的芝麻香氣在口中久久留香而不膩口。' },
-      { id: 'M6', name: '【名記】香酥貢糖', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image_thumb_600.jpg', desc: '✨ 職人古法千層結構，豐富的酥脆層次感，入口即化，是讓人忘不了的傳統滋味。' },
+      { id: 'M5', name: '【名記】黑金剛芝麻貢糖', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image2_thumb_600_604.jpg', desc: '🖤 嚴選飽滿黑芝麻與特製花生揉合，濃郁的芝麻香氣在口中久久留香而不膩口。' },
+      { id: 'M6', name: '【名記2000】香酥貢糖', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image_thumb_600.jpg', desc: '✨ 職人古法千層結構，豐富的酥脆層次感，入口即化，是讓人忘不了的傳統滋味。' },
       { id: 'M7', name: '【名記】軟香貢糖', price: 195, spec: '500g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image6_thumb_600_594.jpg', desc: '🍂 金門老式軟貢糖。花生完美結合芝麻，質地細緻綿密，濃郁香醇。' },
       { id: 'M8', name: '【名記】香脆貢糖', price: 195, spec: '350g', img: 'https://www.minjih.com/archive/image/product1/images/layoutlist/image5_thumb_600_614.jpg', desc: '🥜 特別採用減糖配方調製，酥脆過癮且不黏牙，香氣濃郁無負擔。' },
       { id: 'M9', name: '【名記】花生一口酥', price: 195, spec: '400g', img: 'https://www.minjih.com/archive/image/product1/images/R0001691630px_thumb_630_418.jpg', desc: '⭐ 超人氣暢銷產品！精緻小巧一口一個剛剛好，外皮酥脆內餡濃郁，開袋即停不下來。' }
     ];
 
-    // 💡 修正存德中藥行所有香料的大圖網址拼字（改回 img.susercontent）
     const cundeProducts = [
       { id: 'T1', name: '【存德中藥行】古傳白胡椒粉', img: 'https://down-tw.img.susercontent.com/file/tw-11134207-7r98t-lnrgkqjmek9pe6.webp' },
       { id: 'T2', name: '【存德中藥行】古傳黑胡椒粉', img: 'https://down-tw.img.susercontent.com/file/tw-11134207-7r98t-lnrgkqjmek9pe6.webp' },
@@ -680,7 +738,6 @@
       { id: 'J3', name: '【喬安牧場】戰地牛肉乾', price: 295, spec: '130g', texture: '口感較硬 🎖️', img: 'https://www.shengzu.com.tw/upload/202001151652181.png', desc: '依循傳統法度滷燉入味，再經過慢火烘烤鎖住極致香味，吃起來扎實過癮。', hasFlavors: true, flavors: ['原味', '辣味', '蒜味'] }
     ];
 
-    // 轉帳帳號末五碼顯隱控制
     function toggleCardNumberField() {
       const select = document.getElementById('paymentMethodSelect');
       const cardField = document.getElementById('cardNumberField');
@@ -697,7 +754,6 @@
       }
     }
 
-    // 蝦皮相簿切換
     function switchShopeeImg(imgId, url, btnElement) {
       const targetImg = document.getElementById(imgId);
       if(targetImg) targetImg.src = url;
@@ -708,7 +764,6 @@
       }
     }
 
-    // 口味選單連動相簿
     function handleMajiaFlavorChange(selectId, mainImgId, thumbPrefix) {
       const select = document.getElementById(selectId);
       const flavor = select.value;
@@ -730,7 +785,6 @@
       }
     }
 
-    // 0. HOME 明星商品區 (選單對調完成)
     function renderFeatured() {
       const grid = document.getElementById('featured-grid');
       if(!grid) return;
@@ -748,7 +802,7 @@
           </div>
           <div class="product-info">
             <h3 class="product-name">${mingjiProducts[0].name}</h3>
-            <p class="product-desc">店內人氣第一名！大包裝超值劃算，初次訂購盲選必帶首選！</p>
+            <p class="product-desc">店內人氣第一名！大包裝超值划算，初次訂購盲選必帶首選！</p>
             <div class="product-meta">
               <span class="product-price">NT$ ${mingjiProducts[0].price}</span>
               <div class="qty-control">
@@ -758,14 +812,14 @@
               </div>
             </div>
             <button type="button" class="add-to-cart-btn" style="background-color:var(--dark-wood);" onclick="addToCartFromCard('featured-M1', '${mingjiProducts[0].name}', ${mingjiProducts[0].price}, '500g大容量包裝')">
-              <i class="fas fa-fire"></i> 搶購熱銷伴手
+              <i class="fas fa-cart-plus"></i> 加入代購車
             </button>
           </div>
         </div>
 
         <div class="product-card" style="border: 1px solid var(--sand-gold);">
           <div class="product-img-container">
-            <img src="${majiaImages[0].url}" id="feat-majia-main-img" class="product-img">
+            <img src="${majiaImages[0].url}" onerror="imgError(this)" id="feat-majia-main-img" class="product-img">
             <span class="tag" style="background-color:var(--brick-red);">🔥 傳承五代 360g</span>
           </div>
           <div class="shopee-thumbs" id="feat-majia-thumbs-box">
@@ -792,7 +846,7 @@
               </div>
             </div>
             <button type="button" class="add-to-cart-btn" style="background-color:var(--dark-wood);" onclick="addMaToCart('feat-ma-qty', 'feat-ma-flavor')">
-              <i class="fas fa-fire"></i> 搶購熱銷伴手
+              <i class="fas fa-cart-plus"></i> 加入代購車
             </button>
           </div>
         </div>
@@ -821,14 +875,13 @@
               </div>
             </div>
             <button type="button" class="add-to-cart-btn" style="background-color:var(--dark-wood);" onclick="addJoanToCart('featured-J3', '${joanProducts[2].name}', ${joanProducts[2].price}, '130g', true, 'feat-joan-flavor')">
-              <i class="fas fa-fire"></i> 搶購熱銷伴手
+              <i class="fas fa-cart-plus"></i> 加入代購車
             </button>
           </div>
         </div>
       `;
     }
 
-    // 2. 渲染馬家麵線專區 (文字對調完成)
     function renderMajiaSection() {
       const container = document.getElementById('majia-grid');
       if(!container) return;
@@ -1198,7 +1251,10 @@
       openCart.onclick = () => toggleCart(true);
       closeCart.onclick = () => toggleCart(false);
       overlay.onclick = () => { toggleMenu(false); toggleCart(false); };
-      document.querySelectorAll('.side-menu ul li a').forEach(link => { link.onclick = () => toggleMenu(false); });
+      
+      document.querySelectorAll('.side-menu ul li a').forEach(link => { 
+        link.addEventListener('click', () => toggleMenu(false)); 
+      });
     }
 
     document.addEventListener("DOMContentLoaded", function() {
