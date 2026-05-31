@@ -374,10 +374,27 @@
     .shopee-thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
 
     /* 購物車側欄 */
-    .cart-sidebar { position: fixed; top: 0; right: -380px; width: 360px; height: 100%; background-color: white; border-left: 4px solid var(--dark-wood); z-index: 200; transition: 0.3s ease; display: flex; flex-direction: column; }
+    .cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 360px;
+  height: 100vh;
+
+  background-color: white;
+  border-left: 4px solid var(--dark-wood);
+
+  z-index: 200;
+  transition: 0.3s ease;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
     .cart-sidebar.active { right: 0; }
     .cart-header { padding: 20px; border-bottom: 3px dashed var(--brick-red); background-color: var(--bg-color); display: flex; justify-content: space-between; align-items: center; }
-    .cart-items-container { padding: 20px; flex-grow: 1; overflow-y: auto; }
+   .cart-items-container {
+  padding: 20px;
+}
     .cart-footer { padding: 20px; border-top: 3px solid var(--dark-wood); background-color: #fafafa; }
     .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px dashed #eee; }
     .checkout-form-group { margin-bottom: 10px; }
@@ -401,8 +418,31 @@
       display: none;
       line-height: 1.6;
     }
-    .cart-total { display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: bold; margin-bottom: 15px; border-top: 2px dashed var(--dark-wood); padding-top: 10px; }
-    .checkout-btn { width: 100%; background-color: var(--military-green); color: white; border: 2px solid var(--dark-wood); padding: 12px; border-radius: 6px; font-size: 1rem; cursor: pointer; font-weight: bold; box-shadow: 2px 2px 0px var(--dark-wood); }
+   .checkout-btn {
+  width: 100%;
+  background: linear-gradient(135deg,#27ae60,#2ecc71);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all .2s ease;
+  box-shadow: 0 4px 12px rgba(39,174,96,.3);
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39,174,96,.4);
+}
+
+.checkout-btn:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+  box-shadow: none;
+}
     
     .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 150; display: none; }
     .overlay.active { display: block; }
