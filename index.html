@@ -170,29 +170,38 @@
 }
 
 .hero-poster-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   position: relative;
-
   border-radius: 24px;
   overflow: hidden;
-
-  box-shadow: 0 8px 30px rgba(74,60,49,0.08);
-
-  border-bottom: none;
 }
-
 .hero-poster-img {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 24px;
 }
-    .hero-action-area {
-  text-align: center;
-  padding: 0;
-  background: transparent;
+.hero-action-area {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 0;
 }
+    .hero-shop-btn {
+      background-color: var(--brick-red);
+      color: white;
+      border: 3px solid var(--dark-wood);
+      padding: 14px 45px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0px var(--dark-wood);
+      transition: all 0.1s;
+    }
+    .hero-shop-btn:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--dark-wood);
+    }
     .hero-shop-btn {
       background-color: var(--brick-red);
       color: white;
@@ -443,8 +452,8 @@
           <label>負責窗口：</label>
           <select name="負責窗口" required>
             <option value="" disabled selected>請選擇服務窗口</option>
-            <option value="梁欣 (Penny)">梁欣 (Penny) | 0967-242-917</option>
-            <option value="高川鎂 (Talia)">高川鎂 (Talia) | 0963-529-959</option>
+            <option value="梁欣 (Penny)">梁欣| 0967-242-917</option>
+            <option value="高川鎂 (Talia)">高川鎂| 0963-529-959</option>
           </select>
         </div>
 
@@ -516,6 +525,7 @@
     <div class="marquee-content">
       <span>🌿 【沒找到你想要的商品?】點選「分類選單」，可切換各家老字號店鋪！</span>
       <span>📢 【限購守則】為避免老闆我帶不回去台灣，全店所有店品項「每人每款限購 3 包」。</span>
+      <span>📢 【購物時請注意】要使用google瀏覽器打開網站喔，避免結帳時無法選擇付款方式</span>
     </div>
   </div>
 
@@ -525,11 +535,11 @@
     <section class="hero-poster-container">
      <section class="hero-poster-container">
   <img
-    src="https://i.ibb.co/2Y7n6cRc/kinmen-cover-png.png"
-    class="hero-poster-img"
-    onerror="imgError(this)"
-    alt="金門小島慢旅行手繪選物地圖"
-  >
+  src="https://i.ibb.co/HDnbH2BF/Chat-GPT-Image-2026-5-31-10-38-33.png"
+  class="hero-poster-img"
+  onerror="imgError(this)"
+  alt="浯島海風選物鋪"
+>
 </section>                                         
 
     <!-- 開始選購按鈕區 -->
@@ -558,7 +568,7 @@
       <div id="about-section" class="page-section">
       <div class="about-page-box">
         <div class="about-tag">🗺️ 關於 浯島海風選物鋪</div>
-        <h3 style="margin-bottom: 15px; color: var(--dark-wood); font-size: 1.3rem;">把金門的道地味道，安心捎送回妳家 🐾</h3>
+        <h3 style="margin-bottom: 15px; color: var(--dark-wood); font-size: 1.3rem;">把金門的道地味道，安心捎送回你家 🐾</h3>
         <p style="font-size: 0.95rem; color: var(--text-dark); margin-bottom: 15px; text-align: justify;">
           【浯島海風】努力把大家想要的金門伴手禮帶回台灣。如果有想要的東西但是我們沒有放上來，可以在結帳那邊的許願池許願，這樣你想要的東西可能就會被加到代購清單內喔。
         </p>
@@ -965,4 +975,3 @@
   </script>
 </body>
 </html>
-
