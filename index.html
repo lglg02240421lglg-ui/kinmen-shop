@@ -27,11 +27,11 @@
       background-color: var(--bg-color);
       color: var(--text-dark);
       line-height: 1.7;
-      font-weight: 400; /* 預設文字使用常規細度 */
+      font-weight: 400;
     }
     h1, h2, h3, .logo {
       font-family: 'Mochiy Pop One', 'Noto Sans TC', sans-serif;
-      font-weight: 400; /* 移除標題強制的粗體效果 */
+      font-weight: 400;
     }
 
     /* 導覽列 */
@@ -262,7 +262,7 @@
       }
     }
 
-    /* 下拉式選單與表單細節 */
+    /* 下拉式選單 */
     .spec-label { font-size: 0.85rem; color: var(--dark-wood); margin-bottom: 6px; display: block; }
     .spec-select, .checkout-input select, .checkout-form-group select {
       width: 100%; padding: 10px 12px; border: 3px solid var(--dark-wood); border-radius: 12px; font-family: inherit; font-size: 0.9rem; color: var(--text-dark); background-color: #ffffff; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;
@@ -618,12 +618,29 @@
         featMajiaThumbsHtml += '<button type="button" class="shopee-thumb-btn ' + activeClass + '" data-flavor="' + img.flavor + '" onclick="switchShopeeImg(\'feat-majia-main-img\', \'' + img.url + '\', this)"><img src="' + img.url + '" onerror="imgError(this)"></button>';
       }
       grid.innerHTML = '<div class="product-card"><div class="product-img-container"><img src="' + mingjiProducts[0].img + '" onerror="imgError(this)" class="product-img"><span class="tag">🔥 爆單王 500g</span></div>' +
-          '<div class="product-info"><h3>' + mingjiProducts[0].name + '</h3><p class="product-desc">店內人氣第一名！初次訂購盲選必帶首選！</p><div class="product-meta"><span class="product-price">NT$ ' + mingjiProducts[0].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-M1\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-M1" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-M1\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(\ defense-M1\', \'' + mingjiProducts[0].name + '\', ' + mingjiProducts[0].price + ', \'500g大容量包裝\')">加入代購車</button></div></div>' +
+          '<div class="product-info"><h3>' + mingjiProducts[0].name + '</h3><p class="product-desc">店內人氣第一名！初次訂購盲選必帶首選！</p><div class="product-meta"><span class="product-price">NT$ ' + mingjiProducts[0].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-M1\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-M1" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-M1\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addToCartFromCard(\'featured-M1\', \'' + mingjiProducts[0].name + '\', ' + mingjiProducts[0].price + ', \'500g大容量包裝\')">加入代購車</button></div></div>' +
         '<div class="product-card"><div class="product-img-container"><img src="' + majiaImages[0].url + '" onerror="imgError(this)" id="feat-majia-main-img" class="product-img"><span class="tag">🔥 傳承五代 360g</span></div>' +
           '<div class="shopee-thumbs" id="feat-majia-thumbs-box">' + featMajiaThumbsHtml + '</div>' +
-          '<div class="product-info"><h3>【馬家麵線】手工傳統麵線</h3><p class="product-desc">經陽光與海風自然曝曬乾燥。麵線香Q不鹹。</p><label class="spec-label">選擇口味：</label><select id="feat-ma-flavor" class="spec-select" onchange="handleMajiaFlavorChange(\'feat-ma-flavor\', \'feat-majia-main-img\', \'feat-majia\')"><option value="原味">經典原味 ✨</option><option value="中麵">原味中麵 🥢</option><option value="寬麵">原味寬麵 🛹</option><option value="高粱">在地高粱 🍶</option></select><div class="product-meta"><span class="product-price">NT$ 295</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', -1)">-</button><input type="text" class="qty-input" id="feat-ma-qty" value="1" readonly><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addMaToCart(\'feat-ma-qty\', \'feat-ma-flavor\')">加入代購車</button></div></div>' +
+          '<div class="product-info"><h3>【馬家麵線】手工傳統麵線</h3><p class="product-desc">經陽光與海風自然曝曬乾燥。麵線香Q不鹹。</p><label class="spec-label">選擇口味：</label>' +
+          /* 🌟 核心修正：將漏掉的所有口味補齊到首頁明星商品選單中 */
+          '<select id="feat-ma-flavor" class="spec-select" onchange="handleMajiaFlavorChange(\'feat-ma-flavor\', \'feat-majia-main-img\', \'feat-majia\')">' +
+            '<optgroup label="🍜 原味系列">' +
+              '<option value="原味">經典原味 (細麵) ✨</option>' +
+              '<option value="中麵">原味中麵 🥢</option>' +
+              '<option value="寬麵">原味寬麵 🛹</option>' +
+            '</optgroup>' +
+            '<optgroup label="🎨 風味系列">' +
+              '<option value="山藥">養生山藥 🥔</option>' +
+              '<option value="番茄">鮮甜番茄 🍅</option>' +
+              '<option value="蔬菜">田園蔬菜 🥬</option>' +
+              '<option value="紫地瓜">熟成紫地瓜 🍠</option>' +
+              '<option value="南瓜">金燦南瓜 🎃</option>' +
+              '<option value="高粱">在地高粱 🍶</option>' +
+            '</optgroup>' +
+          '</select>' +
+          '<div class="product-meta"><span class="product-price">NT$ 295</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', -1)">-</button><input type="text" class="qty-input" id="feat-ma-qty" value="1" readonly><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addMaToCart(\'feat-ma-qty\', \'feat-ma-flavor\')">加入代購車</button></div></div>' +
         '<div class="product-card"><div class="product-img-container"><img src="' + joanProducts[2].img + '" onerror="imgError(this)" class="product-img"><span class="tag">🔥 戰地特產 130g</span><span class="tag" style="left:auto; right:12px; background-color:var(--brick-red);">' + joanProducts[2].texture + '</span></div>' +
-          '<div class="product-info"><h3>' + joanProducts[2].name + '</h3><p class="product-desc">傳統法度滷燉入味，慢火烘烤鎖住香味。</p><label class="spec-label">選擇口味：</label><select class="spec-select" id="feat-joan-flavor"><option value="原味">原味</option><option value="辣味">辣味</option><option value="蒜味">蒜味</option></select><div class="product-meta"><span class="product-price">NT$ ' + joanProducts[2].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\ defense-J3\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-J3" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + joanProducts[2].id + '\', \'' + joanProducts[2].name + '\', ' + joanProducts[2].price + ', \'130g\', true, \'feat-joan-flavor\')">加入代購車</button></div></div>';
+          '<div class="product-info"><h3>' + joanProducts[2].name + '</h3><p class="product-desc">傳統法度滷燉入味，慢火烘烤鎖住香味。</p><label class="spec-label">選擇口味：</label><select class="spec-select" id="feat-joan-flavor"><option value="原味">原味</option><option value="辣味">辣味</option><option value="蒜味">蒜味</option></select><div class="product-meta"><span class="product-price">NT$ ' + joanProducts[2].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-J3" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + joanProducts[2].id + '\', \'' + joanProducts[2].name + '\', ' + joanProducts[2].price + ', \'130g\', true, \'feat-joan-flavor\')">加入代購車</button></div></div>';
     }
 
     function renderMajiaSection() {
@@ -638,7 +655,7 @@
             '<div class="product-img-container" style="height: 340px;"><img src="' + majiaImages[0].url + '" id="main-majia-img" class="product-img" style="object-fit: contain; background: white;"><span class="tag">一包8束 / 360g</span></div>' +
             '<div class="shopee-thumbs" id="section-majia-thumbs-box" style="border-top:2px solid var(--dark-wood); padding: 12px;">' + thumbsHtml + '</div>' +
           '</div>' +
-          '<div class="product-info" style="justify-content: center; padding: 30px;"><h3>【馬家麵線】祖傳五代手工傳統麵線</h3><p class="product-desc">麵線香Q不鹹。引用金門純淨水質與本地獨特天候曝曬乾燥。</p>' +
+          '<div class="product-info" style="justify-content: center; padding: 30px;"> override<h3>【馬家麵線】祖傳五代手工傳統麵線</h3><p class="product-desc">麵線香Q不鹹。引用金門純淨水質與本地獨特天候曝曬乾燥。</p>' +
             '<label class="spec-label">🎯 選擇代購口味與麵體：</label><select id="main-ma-flavor" class="spec-select" style="padding: 10px;" onchange="handleMajiaFlavorChange(\'main-ma-flavor\', \'main-majia-img\', \'section-majia\')"><optgroup label="🍜 原味系列"><option value="原味">經典原味 (細麵) ✨</option><option value="中麵">原味中麵 (中等粗度) 🥢</option><option value="寬麵">原味寬麵 (寬體有嚼勁) 🛹</option></optgroup><optgroup label="🎨 風味系列"><option value="山藥">養生山藥 🥔</option><option value="番茄">鮮甜番茄 🍅</option><option value="蔬菜">田園蔬菜 🥬</option><option value="紫地瓜">熟成紫地瓜 🍠</option><option value="南瓜">金燦南瓜 🎃</option><option value="高粱">在地高粱 🍶</option></optgroup></select>' +
             '<div class="product-meta"><span class="product-price" style="font-size: 1.6rem;">NT$ 295</span><div class="qty-control" style="width: 120px;"><button type="button" class="qty-btn" onclick="changeStaticQty(\'main-ma-qty\', -1)">-</button><input type="text" class="qty-input" id="main-ma-qty" value="1" readonly><button type="button" class="qty-btn" onclick="changeStaticQty(\'main-ma-qty\', 1)">+</button></div></div>' +
             '<button type="button" class="add-to-cart-btn" onclick="addMaToCart(\'main-ma-qty\', \'main-ma-flavor\')">加入代購車</button>' +
