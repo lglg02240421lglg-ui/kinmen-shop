@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>浯島海風｜金門伴手採集選物</title>
+  <!-- Google Fonts：圓潤手寫感的文青字體 -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Mochiy+Pop+One&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 圖標 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -101,7 +103,7 @@
     }
     .marquee-content span { margin-right: 50px; }
 
-    /* 溫暖文青手繪風左側選單 */
+    /* 左側選單 */
     .side-menu {
       position: fixed;
       top: 0;
@@ -162,27 +164,11 @@
       box-shadow: 3px 3px 0px var(--dark-wood);
     }
 
-    /* 主視覺大圖控制區 */
-    #main-hero-area {
-      display: block;
-    }
-    .hero-poster-container {
-      width: 100%;
-      max-width: 1050px;
-      margin: 20px auto;
-    }
-    .hero-poster-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 24px;
-    }
-    .hero-action-area {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 15px 0;
-    }
+    /* 主視覺大圖 */
+    #main-hero-area { display: block; }
+    .hero-poster-container { width: 100%; max-width: 1050px; margin: 20px auto; }
+    .hero-poster-img { width: 100%; height: auto; display: block; border-radius: 24px; }
+    .hero-action-area { display: flex; justify-content: center; gap: 12px; padding: 15px 0; }
     .hero-shop-btn {
       background-color: var(--brick-red);
       color: white;
@@ -195,12 +181,9 @@
       box-shadow: 4px 4px 0px var(--dark-wood);
       transition: all 0.1s;
     }
-    .hero-shop-btn:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px var(--dark-wood);
-    }
+    .hero-shop-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0px var(--dark-wood); }
 
-    /* 手繪風店物故事介紹區塊 */
+    /* 店物故事介紹區塊 */
     .about-page-box {
       background: white;
       border: 3px solid var(--dark-wood);
@@ -223,18 +206,8 @@
     }
 
     /* 主要版面 */
-    .main-content {
-      max-width: 1200px;
-      margin: 10px auto 40px auto;
-      padding: 0 20px;
-    }
-    .section-title {
-      font-size: 1.5rem;
-      color: var(--dark-wood);
-      border-left: 6px solid var(--brick-red);
-      padding-left: 15px;
-      margin-bottom: 25px;
-    }
+    .main-content { max-width: 1200px; margin: 10px auto 40px auto; padding: 0 20px; }
+    .section-title { font-size: 1.5rem; color: var(--dark-wood); border-left: 6px solid var(--brick-red); padding-left: 15px; margin-bottom: 25px; }
     .global-notice-box {
       background: white;
       border: none;
@@ -247,11 +220,7 @@
     }
 
     /* 商品卡片與網格 */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 30px;
-    }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
     .product-card {
       background: white;
       border: 3px solid var(--dark-wood);
@@ -262,82 +231,49 @@
       flex-direction: column;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .product-card:hover { 
-      transform: translate(-2px, -2px); 
-      box-shadow: 6px 6px 0px rgba(74,60,49,0.15); 
-    }
-    .product-img-container {
-      height: 220px;
-      background-color: #f5f5f5;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 3px solid var(--dark-wood);
-    }
+    .product-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px rgba(74,60,49,0.15); }
+    .product-img-container { height: 220px; background-color: #f5f5f5; position: relative; overflow: hidden; border-bottom: 3px solid var(--dark-wood); }
     .product-img { width: 100%; height: 100%; object-fit: cover; }
-    .tag {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background-color: var(--ocean-blue);
-      color: white;
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 2px solid var(--dark-wood);
-      z-index: 2;
-    }
-    .promo-stamp {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background-color: var(--sand-gold);
-      color: var(--dark-wood);
-      font-size: 0.75rem;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: bold;
-      border: 2px solid var(--dark-wood);
-      z-index: 2;
-    }
+    .tag { position: absolute; top: 12px; left: 12px; background-color: var(--ocean-blue); color: white; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; border: 2px solid var(--dark-wood); z-index: 2; }
+    .promo-stamp { position: absolute; top: 12px; right: 12px; background-color: var(--sand-gold); color: var(--dark-wood); font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-weight: bold; border: 2px solid var(--dark-wood); z-index: 2; }
     .product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
     .product-name { font-size: 1.1rem; font-weight: 700; color: var(--dark-wood); margin-bottom: 10px; }
     .product-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; text-align: justify; flex-grow: 1; }
     .product-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 15px; border-top: 2px dashed #eee; margin-bottom: 15px; }
     .product-price { font-size: 1.25rem; font-weight: 700; color: var(--brick-red); }
     
-    /* 下拉式選單手繪文青風 */
-    .spec-label {
-      font-size: 0.85rem; 
-      color: var(--dark-wood); 
-      font-weight: bold; 
-      margin-bottom: 6px;
-      display: block;
+    /* 🛠️ 馬家麵線專屬跨欄 RWD 設計 */
+    .majia-big-card {
+      grid-column: 1 / -1; 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 20px;
     }
+    .majia-left-box {
+      display: flex; 
+      flex-direction: column; 
+      background: #f9f9f9; 
+      border-right: 2px solid var(--dark-wood);
+    }
+    @media (max-width: 768px) {
+      /* 🌟 核心修正：手機版時把並排打破，改成上下排列，選單就不會不見了！ */
+      .majia-big-card {
+        grid-template-columns: 1fr; 
+      }
+      .majia-left-box {
+        border-right: none;
+        border-bottom: 2px solid var(--dark-wood);
+      }
+    }
+
+    /* 下拉式選單 */
+    .spec-label { font-size: 0.85rem; color: var(--dark-wood); font-weight: bold; margin-bottom: 6px; display: block; }
     .spec-select, .checkout-input select, .checkout-form-group select {
-      width: 100%;
-      padding: 10px 12px;
-      border: 3px solid var(--dark-wood); 
-      border-radius: 12px; 
-      font-family: inherit;
-      font-size: 0.9rem;
-      font-weight: bold;
-      color: var(--text-dark);
-      background-color: #ffffff;
-      cursor: pointer;
-      outline: none;
-      appearance: none;
-      -webkit-appearance: none;
+      width: 100%; padding: 10px 12px; border: 3px solid var(--dark-wood); border-radius: 12px; font-family: inherit; font-size: 0.9rem; font-weight: bold; color: var(--text-dark); background-color: #ffffff; cursor: pointer; outline: none; appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234a3c31' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      background-size: 14px;
-      transition: all 0.2s;
+      background-repeat: no-repeat; background-position: right 14px center; background-size: 14px; transition: all 0.2s;
     }
-    .spec-select:focus, .spec-select:hover {
-      border-color: var(--brick-red);
-      box-shadow: 3px 3px 0px var(--dark-wood);
-      background-color: #fffdf7;
-    }
+    .spec-select:focus, .spec-select:hover { border-color: var(--brick-red); box-shadow: 3px 3px 0px var(--dark-wood); background-color: #fffdf7; }
 
     .qty-control { display: flex; align-items: center; border: 2px solid var(--dark-wood); border-radius: 8px; overflow: hidden; width: 110px; }
     .qty-btn { background: #f7f7f7; border: none; width: 35px; height: 32px; cursor: pointer; font-size: 1.1rem; color: var(--dark-wood); }
@@ -349,19 +285,7 @@
     .shopee-thumb-btn img { width: 100%; height: 100%; object-fit: cover; }
 
     /* 購物車側欄 */
-    .cart-sidebar {
-      position: fixed;
-      top: 0;
-      right: -380px;
-      width: 360px;
-      height: 100vh;
-      background-color: white;
-      border-left: 4px solid var(--dark-wood);
-      z-index: 200;
-      transition: 0.3s ease;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
+    .cart-sidebar { position: fixed; top: 0; right: -380px; width: 360px; height: 100vh; background-color: white; border-left: 4px solid var(--dark-wood); z-index: 200; transition: 0.3s ease; overflow-y: auto; -webkit-overflow-scrolling: touch; }
     .cart-sidebar.active { right: 0; }
     .cart-header { padding: 20px; border-bottom: 3px dashed var(--brick-red); background-color: var(--bg-color); display: flex; justify-content: space-between; align-items: center; }
     .cart-items-container { padding: 20px; }
@@ -373,47 +297,15 @@
     .checkout-textarea { width: 100%; padding: 8px; border: 2px solid var(--dark-wood); border-radius: 6px; font-size: 0.9rem; resize: none; height: 65px; }
     .cart-total { display: flex; justify-content: space-between; font-weight: bold; padding: 10px 0; font-size: 1.1rem; border-top: 2px solid #eee; margin-top: 10px; }
     
-    .bank-info-box {
-      background: #fff8e1;
-      padding: 12px;
-      border: 2px dashed var(--brick-red);
-      border-radius: 8px;
-      font-size: 0.85rem;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      color: var(--dark-wood);
-      display: none;
-      line-height: 1.6;
-    }
-    .checkout-btn {
-      width: 100%;
-      background: linear-gradient(135deg,#27ae60,#2ecc71);
-      color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 12px;
-      transition: all .2s ease;
-      box-shadow: 0 4px 12px rgba(39,174,96,.3);
-    }
-    .checkout-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(39,174,96,.4);
-    }
-    .checkout-btn:disabled {
-      background: #bdbdbd;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
+    .bank-info-box { background: #fff8e1; padding: 12px; border: 2px dashed var(--brick-red); border-radius: 8px; font-size: 0.85rem; margin-top: 10px; margin-bottom: 10px; color: var(--dark-wood); display: none; line-height: 1.6; }
+    .checkout-btn { width: 100%; background: linear-gradient(135deg,#27ae60,#2ecc71); color: white; border: none; padding: 14px; border-radius: 12px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 12px; transition: all .2s ease; box-shadow: 0 4px 12px rgba(39,174,96,.3); }
+    .checkout-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(39,174,96,.4); }
+    .checkout-btn:disabled { background: #bdbdbd; cursor: not-allowed; box-shadow: none; }
     
     .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 150; display: none; }
     .overlay.active { display: block; }
     footer { background-color: var(--dark-wood); color: #e2dacd; text-align: center; padding: 40px 20px; margin-top: 80px; font-size: 0.85rem; border-top: 6px solid var(--brick-red); }
     
-    /* 分頁顯示核心切換 */
     .page-section { display: none; }
     .page-section.active { display: block; }
   </style>
@@ -422,6 +314,7 @@
 
   <div class="overlay" id="overlay"></div>
 
+  <!-- 左側快速選單 -->
   <nav class="side-menu" id="sideMenu">
     <button class="side-menu-close" id="closeMenu"><i class="fas fa-times"></i></button>
     <h3>📍 金門代購名店分類</h3>
@@ -437,6 +330,7 @@
     </ul>
   </nav>
 
+  <!-- 右側購物車 -->
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-header">
       <h3>🛒 您的購物隨身車</h3>
@@ -508,6 +402,7 @@
     </div>
   </div>
 
+  <!-- 頂部導覽列 -->
   <header>
     <div class="nav-container">
       <button class="hero-shop-btn" id="openMenu" style="border: 2px solid var(--dark-wood); padding: 5px 12px; font-size: 0.95rem; border-radius: 20px; background: white; box-shadow: 2px 2px 0px var(--dark-wood); color: var(--text-dark);"><i class="fas fa-bars"></i> 分類選單</button>
@@ -529,7 +424,7 @@
       <span>📌【限購守則】為避免老闆我帶不回去台灣，全店所有店品項「每人每款限購 3 包」。</span>
       <span>📢 【結單時間】本次結單時間是6/29唷!!!</span>
       <span>🛒【關於價格】全部商品通通免運費！買多少錢就是多少錢，不會有額外費用!</span>
-      <span>📢 【結單時間}】本次結單時間是6/29唷!!!</span>
+      <span>📢 【結單時間】本次結單時間是6/29唷!!!</span>
     </div>
   </div>
 
@@ -550,11 +445,13 @@
       本站商品均為現場採購。因金門老鋪維持傳統產量有限，若遇現場當日提早售罄，我們均會在出貨前第一時間聯絡您口味更換或取消退款，感謝體諒。
     </div>
 
+    <!-- 0. 選物主頁 -->
     <div id="home-page" class="page-section active">
       <h2 class="section-title" style="border-left-color: var(--sand-gold);"><i class="fas fa-fire" style="color: var(--brick-red); margin-right: 8px;"></i> 本季明星產品推薦</h2>
       <div class="product-grid" id="featured-grid"></div>
     </div>
 
+    <!-- 1. 了解更多獨立頁 -->
     <div id="about-section" class="page-section">
       <div class="about-page-box">
         <div class="about-tag">🗺️ 關於 浯島海風選物鋪</div>
@@ -623,7 +520,6 @@
       switchPage('about-section');
     }
 
-    // 核心切換邏輯：控制分頁與大圖同步
     function switchPage(pageId) {
       var sections = document.querySelectorAll('.page-section');
       for (var i = 0; i < sections.length; i++) {
@@ -730,7 +626,7 @@
           '<div class="shopee-thumbs" id="feat-majia-thumbs-box">' + featMajiaThumbsHtml + '</div>' +
           '<div class="product-info"><h3>【馬家麵線】手工傳統麵線</h3><p class="product-desc">經陽光與海風自然曝曬乾燥。麵線香Q不鹹。</p><label class="spec-label">選擇口味：</label><select id="feat-ma-flavor" class="spec-select" onchange="handleMajiaFlavorChange(\'feat-ma-flavor\', \'feat-majia-main-img\', \'feat-majia\')"><option value="原味">經典原味 ✨</option><option value="中麵">原味中麵 🥢</option><option value="寬麵">原味寬麵 🛹</option><option value="高粱">在地高粱 🍶</option></select><div class="product-meta"><span class="product-price">NT$ 295</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', -1)">-</button><input type="text" class="qty-input" id="feat-ma-qty" value="1" readonly><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addMaToCart(\'feat-ma-qty\', \'feat-ma-flavor\')">加入代購車</button></div></div>' +
         '<div class="product-card"><div class="product-img-container"><img src="' + joanProducts[2].img + '" onerror="imgError(this)" class="product-img"><span class="tag">🔥 戰地特產 130g</span><span class="tag" style="left:auto; right:12px; background-color:var(--brick-red);">' + joanProducts[2].texture + '</span></div>' +
-          '<div class="product-info"><h3>' + joanProducts[2].name + '</h3><p class="product-desc">傳統法度滷燉入味，慢火烘烤鎖住香味。</p><label class="spec-label">選擇口味：</label><select class="spec-select" id="feat-joan-flavor"><option value="原味">原味</option><option value="辣味">辣味</option><option value="蒜味">蒜味</option></select><div class="product-meta"><span class="product-price">NT$ ' + joanProducts[2].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\ defense-J3\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-J3" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + joanProducts[2].id + '\', \'' + joanProducts[2].name + '\', ' + joanProducts[2].price + ', \'130g\', true, \'feat-joan-flavor\')">加入代購車</button></div></div>';
+          '<div class="product-info"><h3>' + joanProducts[2].name + '</h3><p class="product-desc">傳統法度滷燉入味，慢火烘烤鎖住香味。</p><label class="spec-label">選擇口味：</label><select class="spec-select" id="feat-joan-flavor"><option value="原味">原味</option><option value="辣味">辣味</option><option value="蒜味">蒜味</option></select><div class="product-meta"><span class="product-price">NT$ ' + joanProducts[2].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-J3" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + joanProducts[2].id + '\', \'' + joanProducts[2].name + '\', ' + joanProducts[2].price + ', \'130g\', true, \'feat-joan-flavor\')">加入代購車</button></div></div>';
     }
 
     function renderMajiaSection() {
@@ -740,8 +636,8 @@
         var img = majiaImages[i]; var activeClass = (i === 0) ? 'active' : '';
         thumbsHtml += '<button type="button" class="shopee-thumb-btn ' + activeClass + '" data-flavor="' + img.flavor + '" onclick="switchShopeeImg(\'main-majia-img\', \'' + img.url + '\', this)"><img src="' + img.url + '" onerror="imgError(this)"></button>';
       }
-      container.innerHTML = '<div class="product-card" style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">' +
-          '<div style="display: flex; flex-direction: column; background:#f9f9f9; border-right: 2px solid var(--dark-wood);">' +
+      container.innerHTML = '<div class="product-card majia-big-card">' +
+          '<div class="majia-left-box">' +
             '<div class="product-img-container" style="height: 340px;"><img src="' + majiaImages[0].url + '" id="main-majia-img" class="product-img" style="object-fit: contain; background: white;"><span class="tag">一包8束 / 360g</span></div>' +
             '<div class="shopee-thumbs" id="section-majia-thumbs-box" style="border-top:2px solid var(--dark-wood); padding: 12px;">' + thumbsHtml + '</div>' +
           '</div>' +
