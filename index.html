@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>浯島海風｜金門伴手採集選物</title>
-  <!-- Google Fonts：圓潤手寫感的文青字體 -->
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Mochiy+Pop+One&family=Noto+Sans+TC:wght=400;500;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 圖標 -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Mochiy+Pop+One&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -164,43 +162,26 @@
       box-shadow: 3px 3px 0px var(--dark-wood);
     }
 
-    /* ⚠️ 主視覺大圖控制區：透過與分頁連動來控制顯示與隱藏 */
+    /* 主視覺大圖控制區 */
     #main-hero-area {
-  display: block;
-}
-
-.hero-poster-container {
-  width: 100%;
-  max-width: 1050px;
-  margin: 20px auto;
-}
-.hero-poster-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 24px;
-}
-.hero-action-area {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  padding: 15px 0;
-}
-    .hero-shop-btn {
-      background-color: var(--brick-red);
-      color: white;
-      border: 3px solid var(--dark-wood);
-      padding: 14px 45px;
-      font-size: 1.15rem;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 4px 4px 0px var(--dark-wood);
-      transition: all 0.1s;
+      display: block;
     }
-    .hero-shop-btn:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px var(--dark-wood);
+    .hero-poster-container {
+      width: 100%;
+      max-width: 1050px;
+      margin: 20px auto;
+    }
+    .hero-poster-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+    }
+    .hero-action-area {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 0;
     }
     .hero-shop-btn {
       background-color: var(--brick-red);
@@ -219,7 +200,7 @@
       box-shadow: 2px 2px 0px var(--dark-wood);
     }
 
-    /* 🌿 獨立一頁的手繪風店物故事介紹區塊 */
+    /* 手繪風店物故事介紹區塊 */
     .about-page-box {
       background: white;
       border: 3px solid var(--dark-wood);
@@ -255,20 +236,15 @@
       margin-bottom: 25px;
     }
     .global-notice-box {
-  background: white;
-  border: none;
-
-  border-radius: 20px;
-
-  padding: 22px 26px;
-
-  margin-bottom: 35px;
-
-  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
-
-  color: #7b4a36;
-  line-height: 1.7;
-}
+      background: white;
+      border: none;
+      border-radius: 20px;
+      padding: 22px 26px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+      color: #7b4a36;
+      line-height: 1.7;
+    }
 
     /* 商品卡片與網格 */
     .product-grid {
@@ -329,7 +305,7 @@
     .product-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 15px; border-top: 2px dashed #eee; margin-bottom: 15px; }
     .product-price { font-size: 1.25rem; font-weight: 700; color: var(--brick-red); }
     
-    /* 🎨 下拉式選單大整容：手繪文青風外觀 */
+    /* 下拉式選單手繪文青風 */
     .spec-label {
       font-size: 0.85rem; 
       color: var(--dark-wood); 
@@ -337,11 +313,11 @@
       margin-bottom: 6px;
       display: block;
     }
-    .spec-select, .checkout-input select {
+    .spec-select, .checkout-input select, .checkout-form-group select {
       width: 100%;
       padding: 10px 12px;
-      border: 3px solid var(--dark-wood); /* 粗黑線 */
-      border-radius: 12px; /* 圓角 */
+      border: 3px solid var(--dark-wood); 
+      border-radius: 12px; 
       font-family: inherit;
       font-size: 0.9rem;
       font-weight: bold;
@@ -349,7 +325,6 @@
       background-color: #ffffff;
       cursor: pointer;
       outline: none;
-      /* 內建箭頭重置與自訂 */
       appearance: none;
       -webkit-appearance: none;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234a3c31' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
@@ -375,36 +350,28 @@
 
     /* 購物車側欄 */
     .cart-sidebar {
-  position: fixed;
-  top: 0;
-  right: -380px;
-  width: 360px;
-  height: 100vh;
-
-  background-color: white;
-  border-left: 4px solid var(--dark-wood);
-
-  z-index: 200;
-  transition: 0.3s ease;
-
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
+      position: fixed;
+      top: 0;
+      right: -380px;
+      width: 360px;
+      height: 100vh;
+      background-color: white;
+      border-left: 4px solid var(--dark-wood);
+      z-index: 200;
+      transition: 0.3s ease;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
     .cart-sidebar.active { right: 0; }
     .cart-header { padding: 20px; border-bottom: 3px dashed var(--brick-red); background-color: var(--bg-color); display: flex; justify-content: space-between; align-items: center; }
-   .cart-items-container {
-  padding: 20px;
-}
+    .cart-items-container { padding: 20px; }
     .cart-footer { padding: 20px; border-top: 3px solid var(--dark-wood); background-color: #fafafa; }
     .cart-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px dashed #eee; }
     .checkout-form-group { margin-bottom: 10px; }
     .checkout-form-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 4px; color: var(--dark-wood); }
     .checkout-input { width: 100%; padding: 8px; border: 2px solid var(--dark-wood); border-radius: 6px; font-size: 0.9rem; }
-    /* 結帳單中的窗口與付款選單同步優化 */
-    .checkout-form-group select {
-      width: 100%; padding: 10px 12px; border: 2px solid var(--dark-wood); border-radius: 8px; font-size: 0.9rem; font-weight: bold; background-color: #fff; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a3c31' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>"); background-repeat: no-repeat; background-position: right 12px center; background-size: 12px;
-    }
     .checkout-textarea { width: 100%; padding: 8px; border: 2px solid var(--dark-wood); border-radius: 6px; font-size: 0.9rem; resize: none; height: 65px; }
+    .cart-total { display: flex; justify-content: space-between; font-weight: bold; padding: 10px 0; font-size: 1.1rem; border-top: 2px solid #eee; margin-top: 10px; }
     
     .bank-info-box {
       background: #fff8e1;
@@ -418,31 +385,29 @@
       display: none;
       line-height: 1.6;
     }
-   .checkout-btn {
-  width: 100%;
-  background: linear-gradient(135deg,#27ae60,#2ecc71);
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 12px;
-  transition: all .2s ease;
-  box-shadow: 0 4px 12px rgba(39,174,96,.3);
-}
-
-.checkout-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(39,174,96,.4);
-}
-
-.checkout-btn:disabled {
-  background: #bdbdbd;
-  cursor: not-allowed;
-  box-shadow: none;
-}
+    .checkout-btn {
+      width: 100%;
+      background: linear-gradient(135deg,#27ae60,#2ecc71);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: all .2s ease;
+      box-shadow: 0 4px 12px rgba(39,174,96,.3);
+    }
+    .checkout-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(39,174,96,.4);
+    }
+    .checkout-btn:disabled {
+      background: #bdbdbd;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
     
     .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 150; display: none; }
     .overlay.active { display: block; }
@@ -457,7 +422,6 @@
 
   <div class="overlay" id="overlay"></div>
 
-  <!-- 左側快速選單 -->
   <nav class="side-menu" id="sideMenu">
     <button class="side-menu-close" id="closeMenu"><i class="fas fa-times"></i></button>
     <h3>📍 金門代購名店分類</h3>
@@ -469,16 +433,14 @@
       <li><a onclick="switchPage('jin-rui-cheng')"><i class="fas fa-cookie" style="color:var(--brick-red);"></i> 金瑞成貢糖專區</a></li>
       <li><a onclick="switchPage('joan')"><i class="fas fa-drumstick-bite" style="color:var(--ocean-blue);"></i> 喬安牧場肉乾專區</a></li>
       <hr style="margin: 15px 0; border: none; border-top: 2px dashed var(--dark-wood); opacity: 0.2;">
-      <!-- 了解更多選項 -->
       <li><a onclick="showAboutSection()"><i class="fas fa-store-alt" style="color:var(--brick-red);"></i> 🌿 了解更多 (關於店鋪)</a></li>
     </ul>
   </nav>
 
-  <!-- 右側購物車 -->
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-header">
       <h3>🛒 您的購物隨身車</h3>
-      <button class="menu-btn" id="closeCart"><i class="fas fa-times"></i></button>
+      <button class="side-menu-close" id="closeCart" style="float:none; font-size:1.4rem;"><i class="fas fa-times"></i></button>
     </div>
     <div class="cart-items-container" id="cartItems">
       <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">購物車空空，快去挑選金門好物吧！</p>
@@ -515,7 +477,6 @@
           </select>
         </div>
 
-        <!-- 轉帳銀行真實資料 -->
         <div id="bankInfoBox" class="bank-info-box">
           <strong>📢 匯款帳戶對齊說明：</strong><br>
           <span style="color: var(--brick-red); font-weight: bold;">👉 如果您是從 梁欣 那邊拿到的網址：</span><br>
@@ -547,10 +508,9 @@
     </div>
   </div>
 
-  <!-- 頂部導覽列 -->
   <header>
     <div class="nav-container">
-      <button class="menu-btn" id="openMenu" style="border: 2px solid var(--dark-wood); padding: 5px 12px; border-radius: 20px; background: white; box-shadow: 2px 2px 0px var(--dark-wood);"><i class="fas fa-bars"></i> 分類選單</button>
+      <button class="hero-shop-btn" id="openMenu" style="border: 2px solid var(--dark-wood); padding: 5px 12px; font-size: 0.95rem; border-radius: 20px; background: white; box-shadow: 2px 2px 0px var(--dark-wood); color: var(--text-dark);"><i class="fas fa-bars"></i> 分類選單</button>
       <a onclick="switchPage('home-page')" class="logo"><i class="fas fa-cloud-sun"></i> 浯島海風</a>
       <div class="nav-tools">
         <button class="cart-trigger" id="openCart">
@@ -569,111 +529,79 @@
       <span>📌【限購守則】為避免老闆我帶不回去台灣，全店所有店品項「每人每款限購 3 包」。</span>
       <span>📢 【結單時間】本次結單時間是6/29唷!!!</span>
       <span>🛒【關於價格】全部商品通通免運費！買多少錢就是多少錢，不會有額外費用!</span>
-      <span>📢【結單時間】本次結單時間是6/29唷!!!</span>
+      <span>📢 【結單時間}】本次結單時間是6/29唷!!!</span>
     </div>
   </div>
 
- <!-- ⚠️ 整合大圖控制外框（非主頁時會跟著一起完全隱藏） -->
   <div id="main-hero-area">
-    <!-- 大圖主視覺區（安全安全綁定本機「封面圖  金門.png」路徑） -->
     <section class="hero-poster-container">
-     <section class="hero-poster-container">
-  <img
-  src="https://i.ibb.co/HDnbH2BF/Chat-GPT-Image-2026-5-31-10-38-33.png"
-  class="hero-poster-img"
-  onerror="imgError(this)"
-  alt="浯島海風選物鋪"
->
-</section>                                         
+      <img src="https://i.ibb.co/HDnbH2BF/Chat-GPT-Image-2026-5-31-10-38-33.png" class="hero-poster-img" onerror="imgError(this)" alt="浯島海風選物鋪">
+    </section>                                         
 
-    <!-- 開始選購按鈕區 -->
     <div class="hero-action-area">
       <button class="hero-shop-btn" onclick="document.getElementById('openMenu').click()">🔥 點我開始買 🔥 </button>
     </div>
   </div>
 
   <main class="main-content">
-
     <div class="global-notice-box">
       <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i> 
       <strong>【注意事項】</strong><br>
       本站商品均為現場採購。因金門老鋪維持傳統產量有限，若遇現場當日提早售罄，我們均會在出貨前第一時間聯絡您口味更換或取消退款，感謝體諒。
     </div>
 
-    <!-- ==================== 頁面徹底隔開獨立專區 ==================== -->
-    
-    <!-- 0. 選物主頁 (只顯示明星推薦) -->
     <div id="home-page" class="page-section active">
       <h2 class="section-title" style="border-left-color: var(--sand-gold);"><i class="fas fa-fire" style="color: var(--brick-red); margin-right: 8px;"></i> 本季明星產品推薦</h2>
       <div class="product-grid" id="featured-grid"></div>
     </div>
 
-    <!-- 1. 了解更多獨立頁 -->
-      <div id="about-section" class="page-section">
+    <div id="about-section" class="page-section">
       <div class="about-page-box">
         <div class="about-tag">🗺️ 關於 浯島海風選物鋪</div>
         <h3 style="margin-bottom: 15px; color: var(--dark-wood); font-size: 1.3rem;">把金門的道地味道，安心捎送回你家 🐾</h3>
         <p style="font-size: 0.95rem; color: var(--text-dark); margin-bottom: 15px; text-align: justify;">
           【浯島海風】努力把大家想要的金門伴手禮帶回台灣。如果有想要的東西但是我們沒有放上來，可以在結帳那邊的許願池許願，這樣你想要的東西可能就會被加到代購清單內喔。
         </p>
-        <p style="font-size: 0.95rem; color: var(--text-dark); text-align: justify; margin-bottom: 20px;">
+        <div style="font-size: 0.95rem; color: var(--text-dark); text-align: justify; margin-bottom: 20px;">
           <h4>🍬 名記貢糖｜古法揉作的千層工藝</h4>
-<p>
-名記貢糖是許多人心中的金門經典伴手禮。堅持遵循傳統工法，從花生研磨、高溫熬煮到反覆揉製，每一步都講究細節。入口香酥不膩、層次豐富，無論是經典竹葉口味或黑芝麻口味，都承載著濃濃的金門記憶。
-</p>
-
-<br>
-
-<h4>🍜 馬家麵線｜陽光與海風的交響曲</h4>
-<p>
-馬家麵線傳承五代手工製麵技藝，利用金門純淨水質、溫暖陽光與料羅灣海風自然風乾。麵線香氣濃郁、口感Q彈，久煮不爛，是許多家庭餐桌上的經典選擇。
-</p>
-
-<br>
-
-<h4>🌿 存德中藥行｜百年淬鍊的香料傳奇</h4>
-<p>
-創立百餘年的存德中藥行，是許多金門人熟悉的老字號。店內香料皆由老師傅精心調配研磨，胡椒粉與十三香更是深受旅客喜愛。濃郁香氣背後，是一代代傳承下來的職人精神。
-</p>
-
-<br>
-
-<h4>🍬 金瑞成貢糖｜烈嶼的酥香記憶</h4>
-<p>
-來自小金門烈嶼的金瑞成，以獨特的竹葉香貢糖聞名。除了保留傳統風味，也持續結合高粱、肉鬆等在地食材進行創新，讓每一口都能品嚐到烈嶼的特色與故事。
-</p>
-
-<br>
-
-<h4>🥩 喬安牧場｜高粱酒香中的戰地風味</h4>
-<p>
-喬安牧場選用優質牛肉製作肉乾，並加入金門高粱酒入味。經過慢火烘烤後，肉質扎實有嚼勁，同時保留淡淡酒香，是極具金門特色的人氣伴手禮。
-                
-        
-        </p>
+          <p>名記貢糖是許多人心中的金門經典伴手禮。堅持遵循傳統工法，從花生研磨、高溫熬煮到反覆揉製，每一步都講究細節。入口香酥不膩、層次豐富，無論是經典竹葉口味或黑芝麻口味，都承載著濃濃的金門記憶。</p>
+          <br>
+          <h4>🍜 馬家麵線｜陽光與海風的交響曲</h4>
+          <p>馬家麵線傳承五代手工製麵技藝，利用金門純淨水質、溫暖陽光與料羅灣海風自然風乾。麵線香氣濃郁、口感Q彈，久煮不爛，是許多家庭餐桌上的經典選擇。</p>
+          <br>
+          <h4>🌿 存德中藥行｜百年淬鍊的香料傳奇</h4>
+          <p>創立百餘年的存德中藥行，是許多金門人熟悉的老字號。店內香料皆由老師傅精心調配研磨，胡椒粉與十三香更是深受旅客喜愛。濃郁香氣背後，是一代代傳承下來的職人精神。</p>
+          <br>
+          <h4>🍬 金瑞成貢糖｜烈嶼的酥香記憶</h4>
+          <p>來自小金門烈嶼的金瑞成，以獨特的竹葉香貢糖聞名。除了保留傳統風味，也持續結合高粱、肉鬆等在地食材進行創新，讓每一口都能品嚐到烈嶼的特色與故事。</p>
+          <br>
+          <h4>🥩 喬安牧場｜高粱酒香中的戰地風味</h4>
+          <p>喬安牧場選用優質牛肉製作肉乾，並加入金門高粱酒入味。經過慢火烘烤後，肉質扎實有嚼勁，同時保留淡淡酒香，是極具金門特色的人氣伴手禮。</p>
+        </div>
         <button onclick="switchPage('home-page')" class="hero-shop-btn" style="padding: 8px 25px; font-size: 0.95rem;">返回主頁逛商品</button>
       </div>
     </div>           
-<div id="ming-ji" class="page-section">
-  <h2 class="section-title">🍬 名記貢糖專區</h2>
-  <div class="product-grid" id="mingji-grid"></div>
-</div>
 
-<div id="ma-jia" class="page-section">
-  <h2 class="section-title">🍜 馬家麵線專區</h2>
-  <div class="product-grid" id="majia-grid"></div>
-</div>
+    <div id="ming-ji" class="page-section">
+      <h2 class="section-title">🍬 名記貢糖專區</h2>
+      <div class="product-grid" id="mingji-grid"></div>
+    </div>
 
-<div id="cun-de" class="page-section">
-  <h2 class="section-title">🌿 存德中藥行專區</h2>
-  <div class="product-grid" id="cunde-grid"></div>
-</div>
+    <div id="ma-jia" class="page-section">
+      <h2 class="section-title">🍜 馬家麵線專區</h2>
+      <div class="product-grid" id="majia-grid"></div>
+    </div>
 
-<div id="jin-rui-cheng" class="page-section">
-  <h2 class="section-title">🍬 金瑞成貢糖專區</h2>
-  <div class="product-grid" id="jinruicheng-grid"></div>
-</div>
-    <!-- 6. 喬安牧場肉乾專區 -->
+    <div id="cun-de" class="page-section">
+      <h2 class="section-title">🌿 存德中藥行專區</h2>
+      <div class="product-grid" id="cunde-grid"></div>
+    </div>
+
+    <div id="jin-rui-cheng" class="page-section">
+      <h2 class="section-title">🍬 金瑞成貢糖專區</h2>
+      <div class="product-grid" id="jinruicheng-grid"></div>
+    </div>
+
     <div id="joan" class="page-section">
       <h2 class="section-title">🥩 喬安牧場金門高粱風味肉乾</h2>
       <div class="product-grid" id="joan-grid"></div>
@@ -695,14 +623,13 @@
       switchPage('about-section');
     }
 
-    // ⚠️ 核心邏輯升級：不僅控制分頁，還同步控制大圖主視覺的顯示與隱藏！
+    // 核心切換邏輯：控制分頁與大圖同步
     function switchPage(pageId) {
       var sections = document.querySelectorAll('.page-section');
       for (var i = 0; i < sections.length; i++) {
         sections[i].classList.remove('active');
       }
       
-      // 控制大圖：只有在主頁 'home-page' 時才顯示大圖區，其他分頁一律完全隱藏
       var heroArea = document.getElementById('main-hero-area');
       if (heroArea) {
         if (pageId === 'home-page') {
@@ -715,7 +642,7 @@
       var targetSec = document.getElementById(pageId);
       if(targetSec) {
         targetSec.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // 從最頂端開始逛，更清爽
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
 
@@ -803,7 +730,7 @@
           '<div class="shopee-thumbs" id="feat-majia-thumbs-box">' + featMajiaThumbsHtml + '</div>' +
           '<div class="product-info"><h3>【馬家麵線】手工傳統麵線</h3><p class="product-desc">經陽光與海風自然曝曬乾燥。麵線香Q不鹹。</p><label class="spec-label">選擇口味：</label><select id="feat-ma-flavor" class="spec-select" onchange="handleMajiaFlavorChange(\'feat-ma-flavor\', \'feat-majia-main-img\', \'feat-majia\')"><option value="原味">經典原味 ✨</option><option value="中麵">原味中麵 🥢</option><option value="寬麵">原味寬麵 🛹</option><option value="高粱">在地高粱 🍶</option></select><div class="product-meta"><span class="product-price">NT$ 295</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', -1)">-</button><input type="text" class="qty-input" id="feat-ma-qty" value="1" readonly><button type="button" class="qty-btn" onclick="changeStaticQty(\'feat-ma-qty\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addMaToCart(\'feat-ma-qty\', \'feat-ma-flavor\')">加入代購車</button></div></div>' +
         '<div class="product-card"><div class="product-img-container"><img src="' + joanProducts[2].img + '" onerror="imgError(this)" class="product-img"><span class="tag">🔥 戰地特產 130g</span><span class="tag" style="left:auto; right:12px; background-color:var(--brick-red);">' + joanProducts[2].texture + '</span></div>' +
-          '<div class="product-info"><h3>' + joanProducts[2].name + '</h3><p class="product-desc">傳統法度滷燉入味，慢火烘烤鎖住香味。</p><label class="spec-label">選擇口味：</label><select class="spec-select" id="feat-joan-flavor"><option value="原味">原味</option><option value="辣味">辣味</option><option value="蒜味">蒜味</option></select><div class="product-meta"><span class="product-price">NT$ ' + joanProducts[2].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-J3" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + joanProducts[2].id + '\', \'' + joanProducts[2].name + '\', ' + joanProducts[2].price + ', \'130g\', true, \'feat-joan-flavor\')">加入代購車</button></div></div>';
+          '<div class="product-info"><h3>' + joanProducts[2].name + '</h3><p class="product-desc">傳統法度滷燉入味，慢火烘烤鎖住香味。</p><label class="spec-label">選擇口味：</label><select class="spec-select" id="feat-joan-flavor"><option value="原味">原味</option><option value="辣味">辣味</option><option value="蒜味">蒜味</option></select><div class="product-meta"><span class="product-price">NT$ ' + joanProducts[2].price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\ defense-J3\', -1)">-</button><input type="text" class="qty-input" id="qty-featured-J3" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'featured-J3\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + joanProducts[2].id + '\', \'' + joanProducts[2].name + '\', ' + joanProducts[2].price + ', \'130g\', true, \'feat-joan-flavor\')">加入代購車</button></div></div>';
     }
 
     function renderMajiaSection() {
@@ -863,7 +790,7 @@
       for (var i = 0; i < joanProducts.length; i++) { var p = joanProducts[i]; var flavorHtml = '';
         if(p.hasFlavors) { flavorHtml += '<label class="spec-label">選擇口味：</label><select class="spec-select" id="flavor-' + p.id + '">'; for(var j=0; j<p.flavors.length; j++) { flavorHtml += '<option value="' + p.flavors[j] + '">' + p.flavors[j] + '</option>'; } flavorHtml += '</select>'; }
         html += '<div class="product-card"><div class="product-img-container"><img src="' + p.img + '" onerror="imgError(this)" class="product-img"><span class="tag">' + p.spec + '</span><span class="tag" style="left:auto; right:12px; background-color:var(--brick-red);">' + p.texture + '</span></div>' +
-          '<div class="product-info"><h3>' + p.name + '</h3><p class="product-desc">' + p.desc + '</p>' + flavorHtml + '<div class="product-meta"><span class="product-price">NT$ ' + p.price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\'' + p.id + '\', -1)">-</button><input type="text" class="qty-input" id="qty-' + p.id + '" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'' + p.id + '\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + p.id + '\', \'' + p.name + '\', ' + p.price + ', \'' + p.spec + '\', ' + p.hasFlavors + ', \'flavor-' + p.id + '\')">加入代購車</button></button></div></div>';
+          '<div class="product-info"><h3>' + p.name + '</h3><p class="product-desc">' + p.desc + '</p>' + flavorHtml + '<div class="product-meta"><span class="product-price">NT$ ' + p.price + '</span><div class="qty-control"><button type="button" class="qty-btn" onclick="changeCardQty(\'' + p.id + '\', -1)">-</button><input type="text" class="qty-input" id="qty-' + p.id + '" value="1" readonly><button type="button" class="qty-btn" onclick="changeCardQty(\'' + p.id + '\', 1)">+</button></div></div><button type="button" class="add-to-cart-btn" onclick="addJoanToCart(\'' + p.id + '\', \'' + p.name + '\', ' + p.price + ', \'' + p.spec + '\', ' + p.hasFlavors + ', \'flavor-' + p.id + '\')">加入代購車</button></div></div>';
       }
       grid.innerHTML = html;
     }
@@ -969,30 +896,6 @@
       }
     }
 
-    // ⚠️ 終極修復：分頁與主視覺大圖完美同步控制
-    function switchPage(pageId) {
-      var sections = document.querySelectorAll('.page-section');
-      for (var i = 0; i < sections.length; i++) {
-        sections[i].classList.remove('active'); 
-      }
-      
-      // 核心控制：只有在主頁 'home-page' 時才顯示大圖區，去別的名店或了解更多時完全藏起來！
-      var heroArea = document.getElementById('main-hero-area');
-      if (heroArea) {
-        if (pageId === 'home-page') {
-          heroArea.style.display = 'block';
-        } else {
-          heroArea.style.display = 'none';
-        }
-      }
-
-      var targetSec = document.getElementById(pageId);
-      if(targetSec) {
-        targetSec.classList.add('active'); 
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // 切換分頁時回到最頂端，視覺最舒服
-      }
-    }
-
     function setupEventListeners() {
       var openMenu = document.getElementById('openMenu'); var closeMenu = document.getElementById('closeMenu'); var sideMenu = document.getElementById('sideMenu');
       var openCart = document.getElementById('openCart'); var closeCart = document.getElementById('closeCart'); var cartSidebar = document.getElementById('cartSidebar');
@@ -1012,8 +915,14 @@
 
     document.addEventListener("DOMContentLoaded", function() {
       try {
-        renderFeatured(); renderMingji(); renderMajiaSection(); renderCunde(); renderJinruicheng(); renderJoan();
-        setupEventListeners(); updateGlobalUI();
+        renderFeatured(); 
+        renderMingji(); 
+        renderMajiaSection(); 
+        renderCunde(); 
+        renderJinruicheng(); 
+        renderJoan();
+        setupEventListeners(); 
+        updateGlobalUI();
       } catch (error) { console.error("啟動機制錯誤:", error); }
     });
   </script>
