@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>浯島海風｜金門伴手禮選物</title>
-  <!-- Google Fonts：圓潤手寫感的文青字體 -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Mochiy+Pop+One&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- Font Awesome 圖標 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
@@ -32,6 +30,72 @@
     h1, h2, h3, .logo {
       font-family: 'Mochiy Pop One', 'Noto Sans TC', sans-serif;
       font-weight: 400;
+    }
+
+    /* 📌 專屬公告公告彈窗樣式 */
+    .notice-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 9999; /* 確保在最上層 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .notice-popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .notice-popup-box {
+      background: white;
+      border: 3px solid var(--dark-wood);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 400px;
+      width: 85%;
+      text-align: center;
+      box-shadow: 6px 6px 0px var(--dark-wood);
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+    }
+    .notice-popup-overlay.active .notice-popup-box {
+      transform: scale(1);
+    }
+    .notice-popup-title {
+      font-size: 1.3rem;
+      color: var(--brick-red);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .notice-popup-content {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .notice-popup-btn {
+      background-color: var(--military-green);
+      color: white;
+      border: 2px solid var(--dark-wood);
+      padding: 10px 30px;
+      font-size: 0.95rem;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px var(--dark-wood);
+      transition: all 0.1s;
+    }
+    .notice-popup-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 2px 2px 0px var(--dark-wood);
     }
 
     /* 導覽列 */
@@ -308,9 +372,23 @@
 </head>
 <body>
 
+  <div class="notice-popup-overlay" id="noticePopup">
+    <div class="notice-popup-box">
+      <div class="notice-popup-title">
+        <i class="fas fa-bullhorn"></i> 浯島海風・代購重要公告
+      </div>
+      <div class="notice-popup-content">
+        嗨！親愛的朋友們：<br>
+        本次金門代購預計在 <strong>6/29 結單</strong>！<br>
+        另外，每人同品項 <strong>限購買三包</strong>！<br>
+        下單完成後記得<strong>向我們確認訂單是否成立</strong>，這樣比較不會有我們沒收到單的情形唷~
+      </div>
+      <button class="notice-popup-btn" onclick="closeNoticePopup()">我知道了</button>
+    </div>
+  </div>
+
   <div class="overlay" id="overlay"></div>
 
-  <!-- 左側快速選單 -->
   <nav class="side-menu" id="sideMenu">
     <button class="side-menu-close" id="closeMenu"><i class="fas fa-times"></i></button>
     <h3>📍 金門代購名店分類</h3>
@@ -326,7 +404,6 @@
     </ul>
   </nav>
 
-  <!-- 右側購物車 -->
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-header">
       <h3>🛒 您的購物隨身車</h3>
@@ -367,7 +444,6 @@
           </select>
         </div>
 
-        <!-- 轉帳銀行資料 -->
         <div id="bankInfoBox" class="bank-info-box">
           <strong>📢 匯款帳戶對齊說明：</strong><br>
           <span style="color: var(--brick-red);">👉 如果您是從 梁欣 那邊拿到的網址：</span><br>
@@ -387,7 +463,7 @@
 
         <div class="checkout-form-group">
           <label style="color: var(--ocean-blue);"><i class="fas fa-magic"></i> 訂單備註 / 敲碗許願池：</label>
-          <textarea name="親友許願與備註" class="checkout-textarea" placeholder="想帶高粱酒或其他限定名產？寫在這裡告訴我們喔！"></textarea>
+          <textarea name="親友許願與備註" class="checkout-textarea" placeholder="想要其他金門好物歡迎在這邊留言，這樣就有機會在下次代購清單內看到它喔"！"></textarea>
         </div>
 
         <div class="cart-total">
@@ -399,7 +475,6 @@
     </div>
   </div>
 
-  <!-- 頂部導覽列 -->
   <header>
     <div class="nav-container">
       <button class="hero-shop-btn" id="openMenu" style="border: 2px solid var(--dark-wood); padding: 5px 12px; font-size: 0.95rem; border-radius: 20px; background: white; box-shadow: 2px 2px 0px var(--dark-wood); color: var(--text-dark);"><i class="fas fa-bars"></i> 分類選單</button>
@@ -442,13 +517,11 @@
       本站商品均為現場採購。因金門老鋪維持傳統產量有限，若遇現場當日提早售罄，我們均會在出貨前第一時間聯絡您口味更換或取消退款，感謝體諒。
     </div>
 
-    <!-- 0. 選物主頁 -->
     <div id="home-page" class="page-section active">
       <h2 class="section-title" style="border-left-color: var(--sand-gold);"><i class="fas fa-fire" style="color: var(--brick-red); margin-right: 8px;"></i> 本季明星產品推薦</h2>
       <div class="product-grid" id="featured-grid"></div>
     </div>
 
-    <!-- 1. 了解更多獨立頁 -->
     <div id="about-section" class="page-section">
       <div class="about-page-box">
         <div class="about-tag">🗺️ 關於 浯島海風選物鋪</div>
@@ -458,7 +531,7 @@
         </p>
         <div style="font-size: 0.95rem; color: var(--text-dark); text-align: justify; margin-bottom: 20px;">
           <h4>🍬 名記貢糖｜古法揉作的千層工藝</h4>
-          <p>名記貢糖是許多人心中的金門經典伴手禮。堅持遵循傳統工法，從花生研磨、高溫熬煮到反覆揉製，每一步都講究細節。入口香酥不膩、層次豐富，無論是經典竹葉口味或黑芝麻口味，都承載著濃濃的金門記憶。</p>
+          <p>名記貢糖 tRNA 許多人心中的金門經典伴手禮。堅持遵循傳統工法，從花生研磨、高溫熬煮到反覆揉製，每一步都講究細節。入口香酥不膩、層次豐富，無論是經典竹葉口味或黑芝麻口味，都承載著濃濃的金門記憶。</p>
           <br>
           <h4>🍜 馬家麵線｜陽光與海風的交響曲</h4>
           <p>馬家麵線傳承五代手工製麵技藝，利用金門純淨水質、溫暖陽光與料羅灣海風自然風乾。麵線香氣濃郁、口感Q彈，久煮不爛，是許多家庭餐桌上的經典選擇。</p>
@@ -544,6 +617,11 @@
       img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="120" viewBox="0 0 100 100" style="background:%23f2ede4; border:3px dashed %234a3c31; border-radius:10px;"><text x="50%25" y="45%25" font-size="10" font-weight="bold" text-anchor="middle" fill="%234a3c31">🎨 浯島海風</text><text x="50%25" y="65%25" font-size="8" text-anchor="middle" fill="%23c85a4a">金門伴手禮選物・插畫設計中</text></svg>';
     }
 
+    // 關閉公告彈窗
+    function closeNoticePopup() {
+      document.getElementById('noticePopup').classList.remove('active');
+    }
+
     var majiaImages = [
       { flavor: '原味', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_747e16b18ce335e0ba73ae9a08156aab.jpg' },    
       { flavor: '高粱', url: 'https://www.majanoodles.com.tw/upload_image/productsCover/productsCover_298178abffe71f9b5bda10c335d4c4df.jpg' },    
@@ -622,7 +700,6 @@
         '<div class="product-card"><div class="product-img-container"><img src="' + majiaImages[0].url + '" onerror="imgError(this)" id="feat-majia-main-img" class="product-img"><span class="tag">🔥 傳承五代 360g</span></div>' +
           '<div class="shopee-thumbs" id="feat-majia-thumbs-box">' + featMajiaThumbsHtml + '</div>' +
           '<div class="product-info"><h3>【馬家麵線】手工傳統麵線</h3><p class="product-desc">經陽光與海風自然曝曬乾燥。麵線香Q不鹹。</p><label class="spec-label">選擇口味：</label>' +
-          /* 🌟 核心修正：將漏掉的所有口味補齊到首頁明星商品選單中 */
           '<select id="feat-ma-flavor" class="spec-select" onchange="handleMajiaFlavorChange(\'feat-ma-flavor\', \'feat-majia-main-img\', \'feat-majia\')">' +
             '<optgroup label="🍜 原味系列">' +
               '<option value="原味">經典原味 (細麵) ✨</option>' +
@@ -655,7 +732,7 @@
             '<div class="product-img-container" style="height: 340px;"><img src="' + majiaImages[0].url + '" id="main-majia-img" class="product-img" style="object-fit: contain; background: white;"><span class="tag">一包8束 / 360g</span></div>' +
             '<div class="shopee-thumbs" id="section-majia-thumbs-box" style="border-top:2px solid var(--dark-wood); padding: 12px;">' + thumbsHtml + '</div>' +
           '</div>' +
-          '<div class="product-info" style="justify-content: center; padding: 30px;"> override<h3>【馬家麵線】祖傳五代手工傳統麵線</h3><p class="product-desc">麵線香Q不鹹。引用金門純淨水質與本地獨特天候曝曬乾燥。</p>' +
+          '<div class="product-info" style="justify-content: center; padding: 30px;"><h3>【馬家麵線】祖傳五代手工傳統麵線</h3><p class="product-desc">麵線香Q不鹹。引用金門純淨水質與本地獨特天候曝曬乾燥。</p>' +
             '<label class="spec-label">🎯 選擇代購口味與麵體：</label><select id="main-ma-flavor" class="spec-select" style="padding: 10px;" onchange="handleMajiaFlavorChange(\'main-ma-flavor\', \'main-majia-img\', \'section-majia\')"><optgroup label="🍜 原味系列"><option value="原味">經典原味 (細麵) ✨</option><option value="中麵">原味中麵 (中等粗度) 🥢</option><option value="寬麵">原味寬麵 (寬體有嚼勁) 🛹</option></optgroup><optgroup label="🎨 風味系列"><option value="山藥">養生山藥 🥔</option><option value="番茄">鮮甜番茄 🍅</option><option value="蔬菜">田園蔬菜 🥬</option><option value="紫地瓜">熟成紫地瓜 🍠</option><option value="南瓜">金燦南瓜 🎃</option><option value="高粱">在地高粱 🍶</option></optgroup></select>' +
             '<div class="product-meta"><span class="product-price" style="font-size: 1.6rem;">NT$ 295</span><div class="qty-control" style="width: 120px;"><button type="button" class="qty-btn" onclick="changeStaticQty(\'main-ma-qty\', -1)">-</button><input type="text" class="qty-input" id="main-ma-qty" value="1" readonly><button type="button" class="qty-btn" onclick="changeStaticQty(\'main-ma-qty\', 1)">+</button></div></div>' +
             '<button type="button" class="add-to-cart-btn" onclick="addMaToCart(\'main-ma-qty\', \'main-ma-flavor\')">加入代購車</button>' +
@@ -833,6 +910,11 @@
         renderJoan();
         setupEventListeners(); 
         updateGlobalUI();
+        
+        // 🌟 網頁載入完成後自動亮出結單公告彈窗
+        setTimeout(function() {
+          document.getElementById('noticePopup').classList.add('active');
+        }, 400);
       } catch (error) { console.error("啟動機制錯誤:", error); }
     });
   </script>
